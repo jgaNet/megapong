@@ -1,0 +1,15 @@
+
+
+<script src="ecran.js" type="text/javascript"></script>
+<script src="chaine.js" type="text/javascript"></script>
+<script src="tv.js" type="text/javascript"></script>
+<script src="zapp.js" type="text/javascript"></script>
+
+<script> // execution.
+	var maTele = new Tv();
+	maTele.ajoutChaine("zouzouTV","zouzouImg");
+	maTele.ajoutChaine("loulouTV","loulouImg");
+	var maZappette = new Zapp(maTele);
+	maZappette.changerChaine("zouzouTV");
+	maZappette.changerChaine("loulouTV");
+</script>
