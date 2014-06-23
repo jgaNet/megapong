@@ -1,0 +1,33 @@
+﻿body {
+	background-color: #aaa;
+	padding: 20px;
+	text-align: center;
+}
+
+.maTv {
+	display: inline-block;
+	min-width: 260px;
+	min-height: 160px;
+	margin: 20px;
+	padding: 10px;
+	background-color: #111;
+	border-radius: 10px;
+}
+
+.maZapp {
+	display: inline-block;
+	margin: 20px;
+	padding: 10px;
+	background-color: #111;
+	border-radius: 10px;
+}
+
+.mesBoutons {
+	display: inline-block;
+	min-width: 20px;
+	min-height: 20px;
+	margin: 20px;
+	padding: 10px;
+	background-color: #fff;
+	border-radius: 10px;
+}
