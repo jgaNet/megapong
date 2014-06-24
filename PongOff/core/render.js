@@ -42,7 +42,7 @@ function Render (games) {
 				this.games[i].gameplay();
 				this.games[i].render();
 			}
-			
-			window.requestAnimationFrame(this.runLoop);
+			/*** too much recursion.. :? */
+			//window.requestAnimationFrame(this.runLoop());
 		}
 	};

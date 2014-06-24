@@ -41,6 +41,7 @@
 	Game.prototype.render = function (){
 		// render de la partie :
 		/*Debug*/ console.log("11. render...");
+		/*Debug*/ console.log("-------------------------");
 		/***/
 	};
 	

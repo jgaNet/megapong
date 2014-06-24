@@ -13,7 +13,10 @@ requirejs(["core/lobby"], function(Lobby){
 	// des joueurs se connectent :
 	myLobby.newPlayer("Mimi");
 	myLobby.newPlayer("Kiki");
+	myLobby.newPlayer("Loulou");
+	myLobby.newPlayer("Zouzou");
+	myLobby.newPlayer("Nana");
 	
-	// quand il y en a au moins deux le lobby crée une game.
-	// var oneGame = new Game("Mimi","Kiki");
+	// temp..
+	// runLoop(myLobby);
 });

@@ -46,6 +46,9 @@
 		/*Debug*/ console.log("5. launchGame");
 		// on prépare la nouvelle partie et la loop :
 		var gameId = this.games.length;
+		// les joueurs ne sont plus disponibles :
+		this.players[player1].inGame = true;
+		this.players[player2].inGame = true;
 		this.games.push(new Game(gameId,player1,player2));
 		this.render.gameLoop();
 	};
