@@ -15,20 +15,20 @@
 		/*Debug*/ console.log("7. Game - new Board");
 		
 		// Au lancement on crée le board :
-		var myHtmlCode = '';
-			+'	<div class="board">'
-			+'		<div class="bottomTxt">'+this.player1+'</div>'
-			+'		<div id="'+this.player1+'Score" class="bottomTxt">0</div>'
-			+'		<div id="'+this.player2+'Score" class="bottomTxt">0</div>'
-			+'		<div class="bottomTxt">'+this.player2+'</div>'
-			+'		<div id="'+this.player1+'Pad" class="boardWrap"><div class="pad"></div></div>'
-			+'		<div id="'+this.player2+'Pad" class="boardWrap"><div class="pad"></div></div>'
-			+'		<div class="boardWrap"><div class="puck"></div></div>'
-			+'	</div>';
+		var myHtmlCode = ''
+			+'<div class="board">'
+			+'	<div class="bottomTxt">'+this.player1+'</div>'
+			+'	<div id="'+this.player1+'Score" class="bottomTxt">0</div>'
+			+'	<div id="'+this.player2+'Score" class="bottomTxt">0</div>'
+			+'	<div class="bottomTxt">'+this.player2+'</div>'
+			+'	<div id="'+this.player1+'Pad" class="boardWrap"><div class="pad"></div></div>'
+			+'	<div id="'+this.player2+'Pad" class="boardWrap"><div class="pad"></div></div>'
+			+'	<div class="boardWrap"><div class="puck"></div></div>'
+			+'</div>';
 			// Note: Id score : nameScore , idPad : namePad.
 
-		this.$container = $(myHtmlCode); /***?...*/
-		$("body").append(this.$container);
+		/***?...*/
+		$("body").append(myHtmlCode);
 		
 	};
 

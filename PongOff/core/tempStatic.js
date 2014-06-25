@@ -14,7 +14,7 @@ if (!window.requestAnimationFrame) {
 	)();
 }
 
-function runLoop(tamere) {
+function runLoop() {
 	// if ( this.games.length == 0 ) {
 		// /*Debug*/ console.log("8. gameLoop Off");
 	// } else {
