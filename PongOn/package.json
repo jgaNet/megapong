@@ -4,7 +4,8 @@
 	"dependencies" : {
 		"express" : "~4.4.3",
 		"connect" : "~2.19.6",
-		"ejs" : "~1.0.0"
+		"ejs" : "~1.0.0",
+		"socket.io": "~1.0.5"
 	},
 	"scripts" : {
 		"start" : "node server.js"

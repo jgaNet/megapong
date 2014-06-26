@@ -22,7 +22,7 @@ server.listen(8888, function(){ console.log("yo"); });
 
 
 
-/* INFO json */
-// /* "npm start" dans la console lance le script "start" */
-// /* "npm toto" dans la console lance le script "toto" */
-// /* sauf que ça ne marche qu'avec les commandes listées dans npm help */
+
+/* "npm start" dans la console lance ça */
+/* "npm toto" dans la console lance ça */
+/* sauf que ça ne marche qu'avec les commandes listées dans npm help */
