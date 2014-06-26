@@ -3,8 +3,9 @@
 function Player (name) {
 	this.name = name;
 	this.inGame = false;
-	this.score = -1;
-	this.posX = -1;
-	this.posY = -1;
+	this.score = 0;
+	this.posY = 88;
+	this.up = false;
+	this.down = false;
 	/*Debug*/ console.log("3. Player : "+this.name+" waiting.");
 }

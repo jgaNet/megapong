@@ -1,8 +1,7 @@
 ﻿/* VARs */
-
 var player1 = { posY : 88, score : 0, up: false, down: false };
 var player2 = { posY : 88, score : 0, up: false, down: false };
-var puck = { posX : 248, posY : 128, dirX : (1+Math.random()-Math.random()), dirY : (1+Math.random()-Math.random()) };
+var puck = { posX : 248, posY : 128, dirX : 0, dirY : 0 };
 var canvas = document.getElementById('monCanvas'), ctx = canvas.getContext('2d');
 canvas.width = 498; canvas.height = 260;
 
@@ -49,6 +48,11 @@ function runLoop() {
 	/* down 1*/  if (player1.down == true){ player1.posY+=2; }
 	/* up 2*/  if (player2.up == true){ player2.posY-=2; }
 	/* down 2*/  if (player2.down == true){ player2.posY+=2; }
+	if ( puck.dirX == 0 && puck.dirY == 0 ) {
+		puck.dirX = 2+Math.random(); if ( Math.round(Math.random()) ) { puck.dirX *= -1; }
+		puck.dirY = 2+Math.random(); if ( Math.round(Math.random()) ) { puck.dirY *= -1; }
+		console.log(puck.dirX+" "+puck.dirY);
+	}
 	puck.posX += puck.dirX;
 	puck.posY += puck.dirY;
 	
@@ -63,25 +67,28 @@ function runLoop() {
 	if ( puck.posY >= 248 ) { puck.posY = 248; puck.dirY *= -1; }
 	
 	// collision puck contre les pads ?
-	if (	(puck.posX >= 31 && puck.posX <= 47 && puck.posY >= player1.posY+8 && puck.posY+8 <= player1.posY+84 )
-			|| ( puck.posX >= 446 && puck.posX <= 461 && puck.posY >= player2.posY+8 && puck.posY+8 <= player2.posY+84 )	) {
-		// on inverse les deux dir x et y
-		puck.dirX *= -1; puck.dirY *= -1;
-		puck.dirX += ( Math.random() - Math.random() );
-		puck.dirY += ( Math.random() - Math.random() );
+	if (	(puck.posX >= 23 && puck.posX <= 50 && puck.posY >= player1.posY-8 && puck.posY <= player1.posY+92 )
+			|| ( puck.posX >= 445 && puck.posX <= 469 && puck.posY >= player2.posY-8 && puck.posY <= player2.posY+92 )	) {
+		puck.dirX *= -1; // on inverse la dir x
+	}
+	if (	(puck.posX >= 23 && puck.posX <= 50 // sur les tranches haut et bas des pads :
+				&& ( (puck.posY >= player1.posY-8 && puck.posY <= player1.posY-4) || (puck.posY >= player1.posY+88 && puck.posY <= player1.posY+92)) )
+			|| ( puck.posX >= 445 && puck.posX <= 469 
+				&& ( (puck.posY >= player2.posY-8 && puck.posY <= player2.posY-4) || (puck.posY >= player2.posY+88 && puck.posY <= player2.posY+92)) )		) {
+		puck.dirY *= -1; // on inverse la dir y
 	}
 
 	// puck derrière les pads :
-	if ( puck.posX <= 1 ) {
-		puck.dirX = (1+Math.random()-Math.random());
-		puck.dirY = (1+Math.random()-Math.random());
+	if ( puck.posX <= -20 ) {
+		puck.dirX = 0;
+		puck.dirY = 0;
 		puck.posX = 248; puck.posY = 128;
 		player2.score++;
 		document.getElementById('score2').innerHTML=player2.score;
 		
-	} else if ( puck.posX >= 498 ) {
-		puck.dirX = (1+Math.random()-Math.random());
-		puck.dirY = (1+Math.random()-Math.random());
+	} else if ( puck.posX >= 520 ) {
+		puck.dirX = 0;
+		puck.dirY = 0;
 		puck.posX = 248; puck.posY = 128;
 		player1.score++;
 		document.getElementById('score1').innerHTML=player1.score;

@@ -3,8 +3,8 @@
 	function Lobby () {
 		this.players = {};
 		this.games = [];
-		this.render = new Render(this.games);
 		/*Debug*/ console.log("1. new Lobby");
+		this.render = new Render(this.games);
 	}
 
 	Lobby.prototype.newPlayer = function (name){
@@ -49,7 +49,7 @@
 		// les joueurs ne sont plus disponibles :
 		this.players[player1].inGame = true;
 		this.players[player2].inGame = true;
-		this.games.push(new Game(gameId,player1,player2));
+		this.games.push(new Game(gameId,this.players[player1],this.players[player2],this.render.controls));
 		this.render.gameLoop();
 	};
 	

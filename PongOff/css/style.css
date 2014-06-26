@@ -46,31 +46,11 @@
 	overflow: hidden;
 }
 
-.boardWrap {
+.monCanvas {
 	float: left;
-	width: 498px;
-	height: 260px;
 	margin-top: -298px;
 	border: 2px solid #8383a0;
 	border-radius: 5px;
 	box-shadow: 0px 5px 15px #8383a0;
-}
-
-.pad {
-	position: relative;
-	width: 12px;
-	height: 80px;
-	background-color: white;
-	box-shadow: inset -5px -5px 5px #8582a9, 2px 2px 2px #12112F;
-	border-radius: 5px;
-}
-
-.puck {
-	position: relative;
-	width: 20px;
-	height: 20px;
-	background-color: white;
-	box-shadow: inset -5px -5px 5px #8582a9, 2px 2px 2px #12112F;
-	border-radius: 20px;
 }
 
