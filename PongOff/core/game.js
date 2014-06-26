@@ -1,11 +1,11 @@
-﻿define(["jquery"], function($){ /*** Pourquoi englobant ou non ? */
+﻿define(["jquery"], function($){ return Game; });
 
 	function Game (gameId,player1,player2,controls) {
 		this.gameId = gameId;
 		this.player1 = player1;
 		this.player2 = player2;
 		this.puck = { posX : 248, posY : 128, dirX : 0, dirY : 0 };
-		this.controls = controls; /***/
+		this.controls = controls;
 		this.canvas;
 		this.ctx;
 
@@ -38,10 +38,10 @@
 		/*Debug*/ console.log("10. gameplay...");
 		
 		/*MOUVEMENTS*/
-		if (/***/this.controls.up1 == true){ this.player1.posY-=2; }
-		if (/***/this.controls.down1 == true){ this.player1.posY+=2; }
-		if (/***/this.controls.up2 == true){ this.player2.posY-=2; }
-		if (/***/this.controls.down2 == true){ this.player2.posY+=2; }
+		if (this.controls.up1 == true){ this.player1.posY-=2; }
+		if (this.controls.down1 == true){ this.player1.posY+=2; }
+		if (this.controls.up2 == true){ this.player2.posY-=2; }
+		if (this.controls.down2 == true){ this.player2.posY+=2; }
 		if ( this.puck.dirX == 0 && this.puck.dirY == 0 ) {
 			this.puck.dirX = 2+Math.random(); if ( Math.round(Math.random()) ) { this.puck.dirX *= -1; }
 			this.puck.dirY = 2+Math.random(); if ( Math.round(Math.random()) ) { this.puck.dirY *= -1; }
@@ -108,5 +108,3 @@
 		this.ctx.fillStyle = '#ffffff'; this.ctx.beginPath(); this.ctx.arc(this.puck.posX,this.puck.posY,8, 0, 2 * Math.PI, false); this.ctx.fill(); // this.puck
 	};
 	
-	return Game;
-});

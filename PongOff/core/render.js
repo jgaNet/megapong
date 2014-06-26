@@ -7,6 +7,30 @@ function Render (games) {
 	this.setLoop();
 	this.setControls();
 }
+	
+	Render.prototype.setControls = function (){
+		/*Debug*/ console.log("1. new Render setControls");
+		// écoute du clavier :
+		var thatRender = this; // pour éviter probleme scope
+		// puisque le this derrière devient celui de window
+		window.onkeydown = function(event){
+			event.preventDefault();
+			var key = event.which || event.keyCode;
+				/* UP 1 */ if (key == 90){ thatRender.controls.up1 = true; }
+				/* DOWN 1*/ if (key == 83){ thatRender.controls.down1 = true; }
+				/* UP 2*/ if (key == 38){ thatRender.controls.up2 = true; }
+				/* DOWN 2*/ if (key == 40){ thatRender.controls.down2	= true; }
+				/* STOP*/ if (key == 80){ alert("Pause"); }		
+		}
+		window.onkeyup = function(event){
+			event.preventDefault();
+			var key = event.which || event.keyCode;
+				/* UP 1 */ if (key == 90){ thatRender.controls.up1 = false; }
+				/* DOWN 1*/ if (key == 83){ thatRender.controls.down1 = false; }
+				/* UP 2*/ if (key == 38){ thatRender.controls.up2 = false; }
+				/* DOWN 2*/ if (key == 40){ thatRender.controls.down2 = false; }
+		}
+	}
 
 	Render.prototype.setLoop = function (){
 		/*Debug*/ console.log("1. new Render setLoop");
@@ -24,28 +48,6 @@ function Render (games) {
 			)();
 		}
 	};
-	
-	Render.prototype.setControls = function (){
-		/*Debug*/ console.log("1. new Render setControls");
-		// écoute du clavier :
-		/***/window.onkeydown = function(event){
-			event.preventDefault();
-			var key = event.which || event.keyCode;
-				/* UP 1 */ if (key == 90){ this.controls.up1 = true; } /*** conflit scope this/window */
-				/* DOWN 1*/ if (key == 83){ this.controls.down1 = true; }
-				/* UP 2*/ if (key == 38){ this.controls.up2 = true; }
-				/* DOWN 2*/ if (key == 40){ this.controls.down2	= true; }
-				/* STOP*/ if (key == 80){ alert("Pause"); }		
-		}
-		window.onkeyup = function(event){
-			event.preventDefault();
-			var key = event.which || event.keyCode;
-				/* UP 1 */ if (key == 90){ this.controls.up1 = false; }
-				/* DOWN 1*/ if (key == 83){ this.controls.down1 = false; }
-				/* UP 2*/ if (key == 38){ this.controls.up2 = false; }
-				/* DOWN 2*/ if (key == 40){ this.controls.down2 = false; }
-		}
-	}
 
 	Render.prototype.gameLoop = function (){
 		// s'il y a au moins une partie, gameloop on, si zero partie, off.
@@ -67,7 +69,11 @@ function Render (games) {
 				this.games[i].gameplay();
 				this.games[i].render();
 			}
-			/*** too much recursion.. :? */
-			// window.requestAnimationFrame(this.runLoop());
+			var render = this; // pour éviter probleme scope
+			// puisque le this derrière devient celui de window
+			window.requestAnimationFrame( function(timestep) {
+					render.runLoop()
+				}
+			);
 		}
 	};

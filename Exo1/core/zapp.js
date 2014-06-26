@@ -10,7 +10,7 @@ Zapp.prototype.changerChaine = function (nomChaine){
 };
 
 Zapp.prototype.creerZapp = function () {
-	this.$container = $('<div class="maZapp"></div>');
+	this.$container = $('<div class="maZapp"></div>'); // ajoute this.container à Zapp, rappellé ligne 21.
 	$("body").append(this.$container);
 	
 	this.$boutons = [];
