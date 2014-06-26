@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title></title>
+		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<!-- fichier qui n'apparait pas dans l'arborescence mais 
+			qui va s'installer coté client chez le viewer de la page -->
+		<script> // cf tchat.js partie socket.io :
+			var socket = io('http://localhost'); // donne le namespace
+			socket.on('message', function(data) {
+				console.log(data);
+				var monDiv = $("<div></div>");
+				$("p").append(monDiv);
+				monDiv.text(data.text); //  securité: text() permet d'échapper le html.
+			});
+			$(document).ready( function() { // pour que ça s'execute une fois la page chargée
+				$("button").on("click", function(){
+					var inputValue = $("input").val();
+					console.log("ttt"); // console dans le client
+					socket.emit("my event", inputValue); // emit au serveur
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<p>
+		<%= message %> <!-- récupère var message et l'affiche. -->
+		</p>
+		<input type="text"></input>
+		<button>sfesqf</button>
+	</body>
+</html>

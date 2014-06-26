@@ -2,7 +2,6 @@
 var http = require("http");
 var ejs = require("ejs");
 var connect = require("connect");
-var servLobby = require("./core/servLobby");
 
 var app = express();
 var server = http.Server(app);
@@ -13,7 +12,7 @@ var io = require("socket.io")(server); // à lancer après le server
 app.set("views",__dirname+"/views");
 app.set("view engine", "ejs");
 
-// require("./core/tchat")(io);
+require("./core/tchat")(io);
 // on pourrait mettre un var chat = .. mais on s'en sert pas après.
 
 /* Config middleware */
@@ -27,7 +26,7 @@ routes(app); // ou en raccourci : require("core/routes")(app);
 /* Lancement serveur */
 server.listen(8888, function(){ console.log("yo"); });
 
-var myLobby = new servLobby(io);
+
 
 /* INFO json */
 // /* "npm start" dans la console lance le script "start" */

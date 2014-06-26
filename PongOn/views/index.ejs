@@ -1,20 +1,13 @@
-<html>
-	<head>
-		<title></title>
-		<script src="/socket.io/socket.io.js"></script>
-		<!-- fichier qui n'apparait pas dans l'arborescence mais 
-			qui va s'installer coté client chez le viewer de la page -->
-			<script> // cf tchat.js partie socket.io :
-				var socket = io('http://localhost'); // donne le namespace
-				socket.on('message', function(data) {
-					console.log(data);
-					document.querySelector("p").innerHTML = data.text;
-				});
-			</script>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>PongOff</title>
+		<link rel="stylesheet" href="css/style.css">
+		<script src="/libs/require.js" type="text/javascript" data-main="core/main"></script>
 	</head>
 	<body>
-		<p>
-		<%= message %> <!-- récupère var message et l'affiche. -->
-		</p>
+		<div id="clientLobby"></div>
+		<div id="clientGame"></div>
 	</body>
 </html>
