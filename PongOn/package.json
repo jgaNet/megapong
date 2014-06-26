@@ -7,7 +7,6 @@
 		"ejs" : "~1.0.0"
 	},
 	"scripts" : {
-		"start" : "node server.js", 
-		"toto" : "echo toto" 
+		"start" : "node server.js"
 	}
 }
