@@ -8,9 +8,9 @@
 				var socket = io('http://localhost'); // donne le namespace
 				socket.on('message', function(data) {
 					console.log(data);
-					document.querySelector("p").innerHTML = message.text;
+					document.querySelector("p").innerHTML = data.text;
 				});
-			</<script>
+			</script>
 	</head>
 	<body>
 		<p>
